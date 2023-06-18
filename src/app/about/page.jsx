@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Navbar from "../componets/Navbar";
 import AboutHero from "../componets/AboutHero";
 import Footer from "../componets/Footer";
@@ -25,8 +26,14 @@ import founder1 from "../../app../../../public/assets/image (19).png";
 import founder2 from "../../app../../../public/assets/image (20).png";
 import founder3 from "../../app../../../public/assets/image (21).png";
 import bottomBg from "../../app../../../public/assets/image (23).png";
+import Layout from "../componets/Layout";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function page() {
+  useEffect(() => {
+    Aos.init({ duration: 1200 });
+  });
   const profile = [
     {
       img: pr1,
@@ -78,88 +85,98 @@ function page() {
     },
   ];
   return (
-    <div>
-      <AboutHero />
-
-      <div className="w-full center flex-col">
-        {/* over the years */}
-        <div className="container center flex-col py-7 text-xl md:text-4xl md:py-10">
-          <div className="font-bold md:py-10">
-            How we evolved over the years
-          </div>
-          <Image src={img1} className=" py-7 overflow-x-auto " />
-        </div>
-        {/* got featured */}
-        <div className="h-56 bg-[rgb(250,251,254)]  flex flex-col gap-4 py-10 px-4 justify-center text-xl md:w-full md:h-[400px] md:text-4xl md:justify-center md:items-center ">
-          <div className="container flex flex-col gap-9 w-full">
-            <div className="font-bold ">Got Featured</div>
-            <div className="flex  gap-3 justify-between ">
-              <Image src={feature1} className="w-16 md:w-40 lg:w-60" />
-              <Image src={feature2} className="w-16 md:w-40 lg:w-60" />
-              <Image src={feature3} className="w-16 md:w-40 lg:w-60" />
-              <Image src={feature4} className="w-16 md:w-40 lg:w-60" />
-              <Image src={feature5} className="w-16 md:w-40 lg:w-60" />
+    <Layout title={"ZET - About Us"}>
+      <div>
+        <AboutHero />
+        <div className="w-full center flex-col">
+          {/* over the years */}
+          <div className="container center flex-col py-7 text-xl md:text-4xl md:py-10">
+            <div className="font-bold md:py-10">
+              How we evolved over the years
             </div>
+            <Image src={img1} className=" py-7 overflow-x-auto " />
           </div>
-        </div>
-        {/* meet the inevestors
-         */}
-        <div className="w-full center">
-          <div className="container flex items-center justify-center flex-col py-20">
-            <div className="top md:text-5xl font-bold w-full">
-              <h2 className="my-11">Meet the Investors</h2>
-              <div className="flex justify-between flex-wrap ">
-                <Image src={inv1} className="w-16 md:w-40 lg:w-60" />
-                <Image src={inv2} className="w-16 md:w-40 lg:w-60" />
-                <Image src={inv3} className="w-16 md:w-40 lg:w-60" />
-                <Image src={inv4} className="w-16 md:w-40 lg:w-60" />
-              </div>
-            </div>
-
-            {/* profiles */}
-            <div className="profiles w-full center mt-28 ">
-              <div className="w-full grid grid-cols-3 gap-x-16 p-5 gap-y-16">
-                {profile.map((item) => {
-                  return (
-                    <Profiles
-                      img={item.img}
-                      name={item.name}
-                      position={item.position}
-                    />
-                  );
-                })}
+          {/* got featured */}
+          <div className="h-56 bg-[rgb(250,251,254)]  flex flex-col gap-4 py-10 px-4 justify-center text-xl md:w-full md:h-[400px] md:text-4xl md:justify-center md:items-center ">
+            <div className="container flex flex-col gap-9 w-full">
+              <div className="font-bold ">Got Featured</div>
+              <div className="flex  gap-3 justify-between ">
+                <Image src={feature1} className="w-16 md:w-40 lg:w-60" />
+                <Image src={feature2} className="w-16 md:w-40 lg:w-60" />
+                <Image src={feature3} className="w-16 md:w-40 lg:w-60" />
+                <Image src={feature4} className="w-16 md:w-40 lg:w-60" />
+                <Image src={feature5} className="w-16 md:w-40 lg:w-60" />
               </div>
             </div>
           </div>
-        </div>
-        {/* our founders */}
-        <div className="w-full flex justify-center items-center flex-col bg-[#eff7ff] py-20">
-          <div className="text-center flex flex-col gap-3 ">
-            <h2 className="md:text-4xl text-3xl font-bold">
-              Meet our Founders
-            </h2>
-            <p className="md:text-2xl text-xl font-light">
-              Few words from founders desk
-            </p>
+          {/* meet the inevestors
+           */}
+          <div className="w-full center">
+            <div className="container flex items-center justify-center flex-col py-20">
+              <div className="top md:text-5xl font-bold w-full">
+                <h2 className="my-11">Meet the Investors</h2>
+                <div
+                  className="flex justify-between flex-wrap "
+                  data-aos="fade-up"
+                >
+                  <Image src={inv1} className="w-16 md:w-40 lg:w-60" />
+                  <Image src={inv2} className="w-16 md:w-40 lg:w-60" />
+                  <Image src={inv3} className="w-16 md:w-40 lg:w-60" />
+                  <Image src={inv4} className="w-16 md:w-40 lg:w-60" />
+                </div>
+              </div>
+
+              {/* profiles */}
+              <div className="profiles w-full center mt-28 ">
+                <div
+                  className="w-full grid grid-cols-3 gap-x-16 p-5 gap-y-16"
+                  data-aos="fade-up"
+                >
+                  {profile.map((item) => {
+                    return (
+                      <Profiles
+                        img={item.img}
+                        name={item.name}
+                        position={item.position}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="container flex justify-around mt-20 flex-wrap ">
-            {founders.map((item) => {
-              return (
-                <FounderProfile
-                  img={item.img}
-                  name={item.name}
-                  position={item.position}
-                />
-              );
-            })}
+          {/* our founders */}
+          <div className="w-full flex justify-center items-center flex-col bg-[#eff7ff] py-20">
+            <div className="text-center flex flex-col gap-3 ">
+              <h2 className="md:text-4xl text-3xl font-bold">
+                Meet our Founders
+              </h2>
+              <p className="md:text-2xl text-xl font-light">
+                Few words from founders desk
+              </p>
+            </div>
+            <div
+              className="container flex justify-around mt-20 flex-wrap "
+              data-aos="fade-up"
+            >
+              {founders.map((item) => {
+                return (
+                  <FounderProfile
+                    img={item.img}
+                    name={item.name}
+                    position={item.position}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
-        {/* aboutus bottom image */}
-        <div>
-          <Image src={bottomBg} className="w-full" />
+          {/* aboutus bottom image */}
+          <div>
+            <Image src={bottomBg} className="w-full" />
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

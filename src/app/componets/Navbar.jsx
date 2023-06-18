@@ -16,14 +16,17 @@ function Navbar() {
   };
 
   return (
-    <div className="Navbar w-full py-4 bg-white flex justify-center items-center font-light md:text-xl  flex-col">
-      <div className="container flex justify-between items-center">
+    <div className="Navbar w-full py-4 bg-white flex justify-center items-center font-light md:text-xl flex-col border-black border-b-[1px]">
+      <div className="container flex justify-between items-center ">
         <div className="logo w-20 md:w-28">
           <Image src={logo} alt="logo" />
         </div>
         <div>
           <ul className="md:flex items-center gap-8 hidden">
-            <li className="hover:text-[rgb(32,116,240)]">Home</li>
+            <li className="hover:text-[rgb(32,116,240)]">
+              {" "}
+              <Link href="/">Home</Link>
+            </li>
             <li className="hover:text-[rgb(32,116,240)]">
               <Link href="/about">About Us</Link>
             </li>
@@ -45,7 +48,9 @@ function Navbar() {
       {show && (
         <div className="bg-white w-full py h-screen flex justify-center items-center mt-4 border-t-[1px] border-[#808080]">
           <ul className="md:hidden flex flex-col items-center gap-14">
-            <li className="hover:text-[rgb(32,116,240)]">Home</li>
+            <li className="hover:text-[rgb(32,116,240)]">
+              <Link href="/">Home</Link>
+            </li>
             <li className="hover:text-[rgb(32,116,240)]">
               <Link href="/about">About Us</Link>
             </li>
